@@ -1,1 +1,1 @@
-# odoocource
+# odoo-course
