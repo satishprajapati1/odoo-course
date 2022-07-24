@@ -1,0 +1,26 @@
+<odoo> 
+
+    <record id="estate_tree_view" model="ir.ui.view" >
+        <field name="name">estate_tree_view</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title"/>
+                <field name="bedrooms"/>
+                <field name="selling_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="estate.action_window" model="ir.actions.act_window">
+      <field name="name">Properties</field>
+      <field name="res_model">estate.property</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="estate_menu_root" name="Real Estate">
+        <menuitem id="estate_first_level_menu" name="Advertisements">
+            <menuitem id="estate_model_menu_action" action="estate.action_window"/>
+        </menuitem>
+    </menuitem>
+
+</odoo>
