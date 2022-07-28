@@ -1,7 +1,7 @@
 {
     'name':'Real Estate',
     'depends' :['base'],
-    'application':['true'] ,
+    'application':True ,
 
     'data': [
         'views/estate_menus.xml',

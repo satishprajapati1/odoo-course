@@ -11,7 +11,7 @@
             </tree>
         </field>
     </record>
-
+    
     <record id="estate.action_window" model="ir.actions.act_window">
       <field name="name">Properties</field>
       <field name="res_model">estate.property</field>
@@ -21,6 +21,14 @@
         <menuitem id="estate_first_level_menu" name="Advertisements">
             <menuitem id="estate_model_menu_action" action="estate.action_window"/>
         </menuitem>
+        <menuitem id="estate_second_level_menu" name="Settings">
+            <menuitem id="estate_model_menu1_action" action="estate.action_settings"/>
+        </menuitem>
     </menuitem>
-
+<record id="estate.action_settings" model="ir.actions.act_window">
+      <field name="name">Property Types</field>
+      <field name="res_model">estate.property.type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
 </odoo>
