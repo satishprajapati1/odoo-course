@@ -1,0 +1,24 @@
+<odoo> 
+
+    <record id="myapp_tree_view" model="ir.ui.view" >
+        <field name="name">myapp_tree_view</field>
+        <field name="model">doctor</field>
+    </record>
+    
+    <record id="myapp.action_window" model="ir.actions.act_window">
+      <field name="name">Doctor</field>
+      <field name="res_model">doctor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="myapp.action_settings" model="ir.actions.act_window">
+      <field name="name">Patient</field>
+      <field name="res_model">patient</field>
+      <field name="view_mode">list,tree,form</field>
+    </record>
+    <menuitem id="myapp_menu_root" name="My App"/>
+        <menuitem id="myapp_first_level_menu" name="Doctor" action="myapp.action_window" parent="myapp_menu_root"/>
+        <menuitem id="myapp_second_level_menu" name="Patient" action="myapp.action_settings" parent="myapp_menu_root" >
+          
+        </menuitem>
+
+</odoo>
