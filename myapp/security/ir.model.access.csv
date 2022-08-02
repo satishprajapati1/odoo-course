@@ -1,4 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_doctor,access_doctor,model_doctor,base.group_user,1,1,1,1
 access_patient,access_patient,model_patient,base.group_user,1,1,1,1
+access_speciality,access_speciality,model_speciality,base.group_user,1,1,1,1
+access_degree,access_degree,model_degree,base.group_user,1,1,1,1
 

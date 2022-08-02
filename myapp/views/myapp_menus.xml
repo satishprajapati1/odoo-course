@@ -3,6 +3,41 @@
     <record id="myapp_tree_view" model="ir.ui.view" >
         <field name="name">myapp_tree_view</field>
         <field name="model">doctor</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="doctor_name"/>
+              <field name="speciality"/>
+            </tree>
+        </field>
+    </record>
+    <record id="patient_tree_view" model="ir.ui.view" >
+        <field name="name">patient_tree_view</field>
+        <field name="model">patient</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="patient_name"/>
+              <field name="disease"/>
+              <field name="visit_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="speciality_tree_view" model="ir.ui.view" >
+        <field name="name">speciality_tree_view</field>
+        <field name="model">speciality</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="speciality"/>
+            </tree>
+        </field>
+    </record>
+    <record id="degree_tree_view" model="ir.ui.view" >
+        <field name="name">degree_tree_view</field>
+        <field name="model">degree</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="degree"/>
+            </tree>
+        </field>
     </record>
     
     <record id="myapp.action_window" model="ir.actions.act_window">
@@ -13,12 +48,24 @@
     <record id="myapp.action_settings" model="ir.actions.act_window">
       <field name="name">Patient</field>
       <field name="res_model">patient</field>
-      <field name="view_mode">list,tree,form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="myapp.action_speciality" model="ir.actions.act_window">
+      <field name="name">Speciality</field>
+      <field name="res_model">speciality</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="myapp.action_degree" model="ir.actions.act_window">
+      <field name="name">Degree</field>
+      <field name="res_model">degree</field>
+      <field name="view_mode">tree,form</field>
     </record>
     <menuitem id="myapp_menu_root" name="My App"/>
         <menuitem id="myapp_first_level_menu" name="Doctor" action="myapp.action_window" parent="myapp_menu_root"/>
-        <menuitem id="myapp_second_level_menu" name="Patient" action="myapp.action_settings" parent="myapp_menu_root" >
-          
+        <menuitem id="myapp_second_level_menu" name="Patient" action="myapp.action_settings" parent="myapp_menu_root" />
+        <menuitem id="myapp_third_level_menu" name="Speciality" parent="myapp_menu_root" >
+          <menuitem id="speciality_menu_action" action="myapp.action_speciality"/>
+          <menuitem id="degree_menu_action" name="Degree" action="myapp.action_degree"/>
         </menuitem>
-
+          
 </odoo>
