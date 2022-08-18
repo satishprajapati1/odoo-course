@@ -1,34 +1,27 @@
 <odoo> 
-
-    <record id="estate_tree_view" model="ir.ui.view" >
-        <field name="name">estate_tree_view</field>
-        <field name="model">estate.property</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="title"/>
-                <field name="bedrooms"/>
-                <field name="selling_price"/>
-            </tree>
-        </field>
-    </record>
-    
-    <record id="estate.action_window" model="ir.actions.act_window">
+    <record id="estate.action_properties" model="ir.actions.act_window">
       <field name="name">Properties</field>
       <field name="res_model">estate.property</field>
       <field name="view_mode">tree,form</field>
+      <field name="context">{'search_default_available': True}</field>
     </record>
-    <menuitem id="estate_menu_root" name="Real Estate">
-        <menuitem id="estate_first_level_menu" name="Advertisements">
-            <menuitem id="estate_model_menu_action" action="estate.action_window"/>
-        </menuitem>
-        <menuitem id="estate_second_level_menu" name="Settings">
-            <menuitem id="estate_model_menu1_action" action="estate.action_settings"/>
-        </menuitem>
-    </menuitem>
-<record id="estate.action_settings" model="ir.actions.act_window">
+    <record id="estate.action_property_types" model="ir.actions.act_window">
       <field name="name">Property Types</field>
       <field name="res_model">estate.property.type</field>
       <field name="view_mode">tree,form</field>
+      <field name="domain">[('property_id.property_type_id', '=', active_id)]</field>
     </record>
+    <record id="estate.action_property_tags" model="ir.actions.act_window">
+      <field name="name">Property tags</field>
+      <field name="res_model">estate.property.tag</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="estate_menu_root" name="Real Estate"/>
+        <menuitem id="estate_advertisements_menu" name="Advertisements" parent="estate_menu_root"/>
+            <menuitem parent="estate_advertisements_menu" id="estate_properties_action" name="Properties" action="estate.action_properties"/>
+        <menuitem id="estate_settings_menu" name="Settings" parent="estate_menu_root"/>
+            <menuitem parent="estate_settings_menu" id="estate_types_action" name="Property Types" action="estate.action_property_types" />
+            <menuitem parent="estate_settings_menu" id="estate_tags_action" name="Property Tags" action="estate.action_property_tags" />
     
 </odoo>
