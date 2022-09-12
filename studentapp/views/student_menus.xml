@@ -1,0 +1,187 @@
+<odoo>
+    <record id="student_main" model="ir.actions.act_window">
+      <field name="name">Student</field>
+      <field name="res_model">student</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="student_course" model="ir.actions.act_window">
+      <field name="name">Student Course</field>
+      <field name="res_model">student.course</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="student_degree" model="ir.actions.act_window">
+      <field name="name">Student Degree</field>
+      <field name="res_model">student.degree</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="student_university" model="ir.actions.act_window">
+      <field name="name">Student University</field>
+      <field name="res_model">student.university</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="student_duration" model="ir.actions.act_window">
+      <field name="name">Student Duration</field>
+      <field name="res_model">student.duration</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="student_menu_root" name="studentapp"/>
+        <menuitem id="student_menu" name="Student" parent="student_menu_root"  action="student_main"/>
+        <menuitem id="student_courses" name="Courses" parent="student_menu_root"  action="student_course"/>
+        <menuitem id="student_conf" name="Configuration" parent="student_menu_root"/>
+            <menuitem id="student_degrees" name="Degrees" parent="student_conf"  action="student_degree"/>
+            <menuitem id="student_universities" name="University" parent="student_conf"  action="student_university"/>
+            <menuitem id="student_durations" name="Duration" parent="student_conf"  action="student_duration"/>
+
+
+    <record id="student_tree" model="ir.ui.view" >
+        <field name="name">Student</field>
+        <field name="model">student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="state"/>
+                <field name="dob"/>
+                <field name="age"/>
+                <field name="last_degree"/>
+                <field name="university"/>
+                <field name="passing_year"/>
+                <field name="percentage"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_course_tree" model="ir.ui.view" >
+        <field name="name">student.course.tree</field>
+        <field name="model">student.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="abbreviation"/>
+                <field name="course_fees" class="fa fa-inr"/>
+                <field name="duration"/>
+                <field name="eligibility"/>
+                <field name="cutoff" class="fa fa-percent"/>
+            </tree>
+        </field>
+    </record>
+    <record id="student_degree_tree" model="ir.ui.view" >
+        <field name="name">student.degree.tree</field>
+        <field name="model">student.degree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="abbreviation"/>
+            </tree>
+        </field>
+    </record>
+    <record id="student_university_tree" model="ir.ui.view" >
+        <field name="name">student.university.tree</field>
+        <field name="model">student.university</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="abbreviation"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="student_duration_tree" model="ir.ui.view" >
+        <field name="name">student.duration.tree</field>
+        <field name="model">student.duration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_form" model="ir.ui.view" >
+        <field name="name">Student</field>
+        <field name="model">student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="state"/>
+                        <field name="dob"/>
+                        <field name="gender"/>
+                        <field name="age"/>
+                    </group>
+                    <notebook>
+                        <page string="Educational Details">
+                            <group>
+                                <field name="last_degree"/>
+                                <field name="university"/>
+                                <field name="passing_year" options="{'datepicker': {'shdowType': 'years'}}"/>
+                                <field name="percentage"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="student_course_form_view" model="ir.ui.view">
+        <field name="name">student.course.form</field>
+        <field name="model">student.course</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <sheet>
+                    <h1><field name="name"/></h1>
+                    <group>
+                        <field name="abbreviation"/>
+                        <field name="course_fees" class="fa fa-inr"/>
+                        <field name="duration"/>
+                        <field name="eligibility"/>
+                        <field name="cutoff" class="fa fa-percent"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="student_degree_form_view" model="ir.ui.view" >
+        <field name="name">student.degree.form</field>
+        <field name="model">student.degree</field>
+        <field name="arch" type="xml">
+            <form string="Degrees">
+                <sheet>
+                    <h1><field name="name"/></h1>
+                    <group>
+                        <field name="abbreviation"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="student_university_form_view" model="ir.ui.view" >
+        <field name="name">student.university.form</field>
+        <field name="model">student.university</field>
+        <field name="arch" type="xml">
+            <form string="Universities">
+                <sheet>
+                    <h1><field name="name"/></h1>
+                    <group>
+                        <field name="abbreviation"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="student_duration_form_view" model="ir.ui.view" >
+        <field name="name">student.duration.form</field>
+        <field name="model">student.duration</field>
+        <field name="arch" type="xml">
+            <form string="Duration">
+                <sheet>
+                    <h1><field name="name"/></h1>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
