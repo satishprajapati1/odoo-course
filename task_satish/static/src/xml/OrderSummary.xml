@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderSummary" t-inherit="point_of_sale.OrderSummary" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('summary')]" position="after">
+            <div class="summary clearfix">
+                <t t-set="_totalItems" t-value="getTotalItems()"/>
+                <div class="line">
+                    <div class="entry total">
+                        <span class="badge">Total Items: </span>
+                        <span class="value">
+                            <t t-esc="_totalItems" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="summary clearfix">
+                <div class="line">
+                    <t t-set="_totalQty" t-value="getTotalQuantities()"/>
+                    <div class="entry total">
+                        <span class="badge">Total Quantities: </span>
+                        <span class="value">
+                            <t t-esc="_totalQty" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>
