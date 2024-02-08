@@ -28,6 +28,17 @@ http://maetl.net/talks/rise-and-fall-of-orm
 
 https://agiledata.org/essays/mappingObjects.html
 
+# Common web framework functionality
+- Frameworks provide functionality in their code or through extensions to perform common operations required to run web applications. These common operations include:
+https://www.fullstackpython.com/web-frameworks.html
+- URL routing
+- Input form handling and validation
+- HTML, XML, JSON, and other output formats with a templating engine
+- Database connection configuration and persistent data manipulation through an object-relational mapper (ORM)
+- Web security against Cross-site request forgery (CSRF), SQL Injection, Cross-site Scripting (XSS) and other common malicious attacks
+- Session storage and retrieval
+
+
 # Django
 - Django is a widely-used Python web application framework with a "batteries-included" philosophy. The principle behind batteries-included is that the common functionality for building web applications should come with the framework instead of as separate libraries.
 
